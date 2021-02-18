@@ -1,63 +1,64 @@
 package javacode.task;
 
-import com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Component
 @Scope("prototype")
 public class Task {
 
-    private AtomicInteger taskId;
-    private String taskName;
-    private String taskAuthor;
-    private String taskAssignee;
-    private String taskState;
+    private AtomicInteger id;
+    private String name;
+    private String author;
+    private String assignee;
+    private String state;
 
     public Task(String taskName, String taskAuthor, String taskAssignee, String taskState) {
-        taskId.getAndIncrement();
-        this.taskName = taskName;
-        this.taskAuthor = taskAuthor;
-        this.taskAssignee = taskAssignee;
-        this.taskState = taskState;
+        id.getAndIncrement();
+        this.name = taskName;
+        this.author = taskAuthor;
+        this.assignee = taskAssignee;
+        this.state = taskState;
     }
 
-    public int getTaskId() {
-        return taskId.get();
+    public Task() {
     }
 
-    public String getTaskName() {
-        return taskName;
+    public int getId() {
+        return id.get();
     }
 
-    public void setTaskName(String taskName) {
-        this.taskName = taskName;
+    public String getName() {
+        return name;
     }
 
-    public String getTaskAuthor() {
-        return taskAuthor;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setTaskAuthor(String taskAuthor) {
-        this.taskAuthor = taskAuthor;
+    public String getAuthor() {
+        return author;
     }
 
-    public String getTaskAssignee() {
-        return taskAssignee;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public void setTaskAssignee(String taskAssignee) {
-        this.taskAssignee = taskAssignee;
+    public String getAssignee() {
+        return assignee;
     }
 
-    public String getTaskState() {
-        return taskState;
+    public void setAssignee(String assignee) {
+        this.assignee = assignee;
     }
 
-    public void setTaskState(String taskState) {
-        this.taskState = taskState;
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 }
