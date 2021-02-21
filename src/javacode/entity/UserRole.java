@@ -1,4 +1,4 @@
-package javacode.user;
+package javacode.entity;
 
 public enum UserRole {
 

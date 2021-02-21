@@ -1,15 +1,5 @@
 package javacode;
 
-import javacode.configs.SpringConfig;
-import javacode.entity.Employee;
-import javacode.user.User;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import java.util.List;
-
 
 public class Main {
 

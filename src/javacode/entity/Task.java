@@ -1,22 +1,32 @@
-package javacode.task;
+package javacode.entity;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import javax.persistence.*;
 
-@Component
-@Scope("prototype")
+
+@Entity
+@Table (name = "Tasks")
 public class Task {
 
-    private AtomicInteger id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "author")
     private String author;
+
+    @Column(name = "assignee")
     private String assignee;
+
+    @Column(name = "state")
     private String state;
 
+
     public Task(String taskName, String taskAuthor, String taskAssignee, String taskState) {
-        id.getAndIncrement();
         this.name = taskName;
         this.author = taskAuthor;
         this.assignee = taskAssignee;
@@ -24,10 +34,15 @@ public class Task {
     }
 
     public Task() {
+
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public int getId() {
-        return id.get();
+        return id;
     }
 
     public String getName() {
@@ -60,5 +75,16 @@ public class Task {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", assignee='" + assignee + '\'' +
+                ", state='" + state + '\'' +
+                '}';
     }
 }
